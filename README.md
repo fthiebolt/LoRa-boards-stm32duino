@@ -11,3 +11,7 @@ For such behaviour, you just need to switch a selector.
 
 ### TODO
 a lot ... for example nothing was done to provide USB support ...
+
+Ultimately, my goal is to get rid of this repository and to have thoses boards* supported within stm32duino toolchain :)
+
+* STM32L151C8T6, STM32F103 & STM32F303
