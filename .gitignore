@@ -1,0 +1,18 @@
+# Files to ignore
+/.idea
+*.sav
+*.bak
+*.old
+*.swp
+*.kate-swp
+*.pyc
+*.bin
+.~*
+*~
+
+# PlatformIO specific
+.clang_complete
+.gcc-flags.json
+.pioenvs
+.piolibdeps
+
