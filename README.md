@@ -5,3 +5,9 @@ https://bsfrance.fr/lora-long-range/1368-LoRaM3-D-L151-LoRa-STM32-OLED-LiPo-deve
 
 ### Howto
 Just run script './deploy.sh' and board will get added to your Arduino boards list
+
+Please note that i don't use BSFrance's USB bootloader ... instead i prefer the serial one embedded within each stm32 :)
+For such behaviour, you just need to switch a selector.
+
+### TODO
+a lot ... for example nothing was done to provide USB support ...
