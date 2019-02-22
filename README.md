@@ -3,8 +3,12 @@ stm32duino support for BSFrance stm32l151c8t6 board featuring a sx1276 (LoRa) mo
 
 https://bsfrance.fr/lora-long-range/1368-LoRaM3-D-L151-LoRa-STM32-OLED-LiPo-development-board-long-range-ARM-SX1276.html
 
-### Howto
-Just run script './deploy.sh' and board will get added to your Arduino boards list
+### Getting started
+First of all, you ought to install stm32duino in your Arduino IDE
+
+https://github.com/stm32duino/Arduino_Core_STM32
+
+Then, run script './deploy.sh' and board will get added to your Arduino boards list :)
 
 Please note that i don't use BSFrance's USB bootloader ... instead i prefer the serial one embedded within each stm32 :)
 For such behaviour, you just need to switch a selector.
