@@ -2,12 +2,13 @@
 #
 # Deployment script for stm32duino variants
 #
+# Thiebolt F.   sep.19  update for stm32duino 1.7.0
 # Thiebolt F.   dec.18  initial release
 #
 
 #
 # Global defs
-STM32DUINO_REV=${STM32DUINO_REV:-"1.5.0"}
+STM32DUINO_REV=${STM32DUINO_REV:-"1.7.0"}
 STM32DUINO_DIR=${STM32DUINO_DIR:-"~/.arduino15/packages/STM32/hardware/stm32/${STM32DUINO_REV}"}
 eval STM32DUINO_DIR=${STM32DUINO_DIR}
 

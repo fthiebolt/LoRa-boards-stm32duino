@@ -29,8 +29,9 @@ BSFRANCE.menu.pnum.LORAM3_L151C8.build.cmsis_lib_gcc=arm_cortexM3l_math
 
 # Upload menu
 BSFRANCE.menu.upload_method.serialMethod=Serial
-BSFRANCE.menu.upload_method.serialMethod.upload.protocol=maple_serial
-BSFRANCE.menu.upload_method.serialMethod.upload.tool=serial_upload
+BSFRANCE.menu.upload_method.serialMethod.upload.protocol=1
+BSFRANCE.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
+BSFRANCE.menu.upload_method.serialMethod.upload.tool=stm32CubeProg
 
 BSFRANCE.menu.upload_method.STLink=STLink
 BSFRANCE.menu.upload_method.STLink.upload.protocol=STLink

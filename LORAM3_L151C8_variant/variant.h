@@ -34,7 +34,8 @@
 /*----------------------------------------------------------------------------
  *        Headers
  *----------------------------------------------------------------------------*/
-#include "PeripheralPins.h"
+//[Francois sep.19] removed
+//#include "PeripheralPins.h"
 
 #ifdef __cplusplus
 extern "C"{
@@ -43,7 +44,8 @@ extern "C"{
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
-extern const PinName digitalPin[];
+//[Francois sep.19] removed
+//extern const PinName digitalPin[];
 
 // Define pin names to match digital pin number --> Dx
 // It could be used with preprocessor tests (e.g. #if PXn == 3)

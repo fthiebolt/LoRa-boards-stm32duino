@@ -28,7 +28,8 @@
  *******************************************************************************
  */
 
-#include "variant.h"
+// [Francois sep.19] removed #include "variant.h"
+#include "pins_arduino.h"
 
 
 /* 
