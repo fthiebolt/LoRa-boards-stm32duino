@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (c) 2017, STMicroelectronics
+ * Copyright (c) 2018, STMicroelectronics
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,24 +28,19 @@
  *******************************************************************************
  */
 
-// [Francois sep.19] removed #include "variant.h"
 #include "pins_arduino.h"
 
-
 /* 
- * [jan.19] addon for selecting clock source
- * select HSE (external clock) or HSI (internal)
- */
+ *  * [jan.19] addon for selecting clock source
+ *   * select HSE (external clock) or HSI (internal)
+ *    */
 //#define _INTERNAL_CLOCK     // select HSI (HSE otherwise)
-
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 // Pin number
-// This array allows to wrap Arduino pin number(Dx or x)
-// to STM32 PinName (PX_n)
 const PinName digitalPin[] = {
 /* USB connector on the top, OLED display side */
 /* Left side, from bottom to top */
@@ -81,18 +76,6 @@ const PinName digitalPin[] = {
   PA_14,    //D28 - STlink SWCLK
   PA_13     //D29 - STlink SWDIO
 };
-/* ?!?!
-  // Duplicated pins in order to be aligned with PinMap_ADC
-  P, //D88/A10 = D
-  P, //D89/A11 = D
-  P, //D90/A12 = D
-  P, //D91/A13 = D
-  P, //D92/A14 = D
-  P, //D93/A15 = D
-  P, //D94/A16 = D
-  P  //D95/A17 = D
-};
-*/
 
 #ifdef __cplusplus
 }
@@ -123,7 +106,7 @@ WEAK void SystemClock_Config(void)
 {
   	RCC_OscInitTypeDef RCC_OscInitStruct;
   	RCC_ClkInitTypeDef RCC_ClkInitStruct;
-	//RCC_PeriphCLKInitTypeDef PeriphClkInit;
+	RCC_PeriphCLKInitTypeDef PeriphClkInit;
 
     /* WARNING: USB bootloader from BSFrance seems to disable CLK ...
      * ... means that you get bricked once you overwrite it through serial upload :(
@@ -177,7 +160,7 @@ WEAK void SystemClock_Config(void)
 		_Error_Handler(__FILE__, __LINE__);
     }
 
-    /* Initialise peripherals clocks 
+    /* Initialise peripherals clocks */
 	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
 	PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
     
@@ -186,16 +169,6 @@ WEAK void SystemClock_Config(void)
     	// Initialization Error
 		_Error_Handler(__FILE__, __LINE__);
 	}
-    */
-
-    /* Configure the Systick interrupt time */
-	HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
-
-    /* Configure the Systick */
-	HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-
-    /* SysTick_IRQn interrupt configuration */
-    HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
 #ifdef __cplusplus

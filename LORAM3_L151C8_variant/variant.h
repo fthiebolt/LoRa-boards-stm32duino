@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (c) 2017, STMicroelectronics
+ * Copyright (c) 2018, STMicroelectronics
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,6 @@
 #ifndef _VARIANT_ARDUINO_STM32_
 #define _VARIANT_ARDUINO_STM32_
 
-/*----------------------------------------------------------------------------
- *        Headers
- *----------------------------------------------------------------------------*/
-//[Francois sep.19] removed
-//#include "PeripheralPins.h"
-
 #ifdef __cplusplus
 extern "C"{
 #endif // __cplusplus
@@ -44,31 +38,6 @@ extern "C"{
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
-//[Francois sep.19] removed
-//extern const PinName digitalPin[];
-
-// Define pin names to match digital pin number --> Dx
-// It could be used with preprocessor tests (e.g. #if PXn == 3)
-// so an enum will not work.
-// !!!
-// !!! Copy the digitalPin[] array from the variant.cpp
-// !!! and remove all '_': PX_n --> PXn
-// !!! For NC, comment the line to warn x pin number is NC
-// !!! // x is NC
-// !!! For duplicated pin name, comment the line to warn x pin number
-// !!! is PXn which is already defined with y pin number
-// !!! // x is PXn (y)
-// !!! Ex:
-// !!! ...
-// !!! #define PA4  20 // A14
-// !!! #define PB4  21
-// !!! #define PB5  22
-// !!! #define PB3  23
-// !!! // 24 is PA4 (20)
-// !!! // 25 is PB4 (21)// #define PXn x
-// !!! #define PA2  26 // A15
-// !!! ...
-
 /* USB connector on the top, OLED display side */
 /* Left side, from bottom to top */
 #define PA2     0   // Radio RST
@@ -156,11 +125,9 @@ extern "C"{
 #define PIN_WIRE_SCL            PB6
 
 // Timer Definitions
-//Do not use timer used by PWM pins when possible. See PinMap_PWM in PeripheralPins.c
-#define TIMER_TONE              TIM4
-
-// Do not use basic timer: OC is required
-#define TIMER_SERVO             TIM2  //TODO: advanced-control timers don't work
+// Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
+#define TIMER_TONE              TIM6
+#define TIMER_SERVO             TIM7
 
 // UART Definitions
 // Define here Serial instance number to map on Serial generic name
@@ -177,20 +144,25 @@ extern "C"{
 #define PIN_SERIAL_RX           PA10
 #define PIN_SERIAL_TX           PA9
 
-// Optional PIN_SERIALn_RX and PIN_SERIALn_TX where 'n' is the U(S)ART number
-// Used when user instanciate a hardware Serial using its peripheral name.
-// Example: HardwareSerial mySerial(USART3);
-// will use PIN_SERIAL3_RX and PIN_SERIAL3_TX if defined.
-//#define PIN_SERIALn_RX          x // For U(S)ARTn RX
-//#define PIN_SERIALn_TX          x // For U(S)ARTn TX
-//#define PIN_SERIALLP1_RX        x // For LPUART1 RX
-//#define PIN_SERIALLP1_TX        x // For LPUART1 TX
-
-// SD card slot Definitions
-// SD detect signal can be defined if required
-//#define SD_DETECT_PIN           x
-// SD Read/Write timeout, default value defined in STM32SD library
-//#define SD_DATATIMEOUT          x
+/* HAL configuration */
+#if !defined  (HSE_VALUE)
+  #define HSE_VALUE    (8000000U) /*!< Value of the External oscillator in Hz */
+#endif /* HSE_VALUE */
+#if !defined  (HSE_STARTUP_TIMEOUT)
+  #define HSE_STARTUP_TIMEOUT    (100U)   /*!< Time out for HSE start up, in ms */
+#endif /* HSE_STARTUP_TIMEOUT */
+#if !defined  (MSI_VALUE)
+  #define MSI_VALUE    (2097000U) /*!< Value of the Internal oscillator in Hz*/
+#endif /* MSI_VALUE */
+#if !defined  (HSI_VALUE)
+  #define HSI_VALUE    (16000000U) /*!< Value of the Internal oscillator in Hz*/
+#endif /* HSI_VALUE */
+#if !defined  (LSE_VALUE)
+  #define LSE_VALUE    (32768U) /*!< Value of the External Low Speed oscillator in Hz*/
+#endif /* LSE_VALUE */
+#if !defined  (LSE_STARTUP_TIMEOUT)
+  #define LSE_STARTUP_TIMEOUT    (5000U)   /*!< Time out for LSE start up, in ms */
+#endif /* LSE_STARTUP_TIMEOUT */
 
 #ifdef __cplusplus
 } // extern "C"
