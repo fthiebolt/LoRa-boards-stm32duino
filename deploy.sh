@@ -2,6 +2,7 @@
 #
 # Deployment script for stm32duino variants
 #
+# Thiebolt F.   oct.19  removed _variant in dirname for lazy win users ;)
 # Thiebolt F.   sep.19  update for stm32duino 1.7.0
 # Thiebolt F.   dec.18  initial release
 #
@@ -31,19 +32,20 @@ sleep 1
 echo -e   "#         install variants                                 #"
 echo -e   "#                                                          #"
 _cpt=0
-for variant_dir in $(/bin/ls -d *_variant/); do
-    _dir=${variant_dir%%_variant/}
-    echo -ne "${_dir} --> install as stm32duino variant [y/N]? : "
+for variant_dir in $(/bin/ls -d */); do
+    # is it really a variant dir ??
+    _vdir=${variant_dir%%/}
+    [ -f ${_vdir}/variant.h ] || { continue; }
+    echo -ne "${_vdir} --> install as stm32duino variant [y/N]? : "
     read -e -n 1 answer
     [ "X${answer,,}" != "Xy" ] && { echo -e "cancelled!"; continue; }
-    # copy variant dir content
-    _destdir=${STM32DUINO_DIR}/variants/${_dir}
-    mkdir ${_destdir} >& /dev/null
-    rsync -av --dry-run ${variant_dir}/* ${_destdir} >& /dev/null
-    [ $? -ne 0 ] && { echo -e "\n#WARNING: unable to rsync ${_dir} in ${_destdir} ... continuing!" >&2; sleep 2; continue; }
-    rsync -av ${variant_dir}/* ${_destdir}
-    [ $? -ne 0 ] && { echo -e "\n### ERROR while rsync of ${_dir} in ${_destdir} ... aborting!" >&2; exit 1; }
-    echo -e "\tsuccessfully installed variant '${_dir}' :)"
+    # copy variant dir
+    _destdir=${STM32DUINO_DIR}/variants/
+    rsync -av --delete --dry-run ${_vdir} ${_destdir} >& /dev/null
+    [ $? -ne 0 ] && { echo -e "\n#WARNING: unable to rsync ${_vdir} in ${_destdir} ... continuing!" >&2; sleep 2; continue; }
+    rsync -av --delete ${_vdir} ${_destdir}
+    [ $? -ne 0 ] && { echo -e "\n### ERROR while rsync of ${_vdir} in ${_destdir} ... aborting!" >&2; exit 1; }
+    echo -e "\tsuccessfully installed variant '${_vdir}' :)"
     (( _cpt++ ))
 done
 echo -e   "#                                                          #"
