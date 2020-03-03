@@ -1,4 +1,4 @@
-  /* SYS_WKUP */
+/* SYS_WKUP */
 #ifdef PWR_WAKEUP_PIN1
   SYS_WKUP1 = PA_0,
 #endif
@@ -22,5 +22,10 @@
 #endif
 #ifdef PWR_WAKEUP_PIN8
   SYS_WKUP8 = NC,
+#endif
+/* USB */
+#ifdef USBCON
+USB_DM = PA_11,
+USB_DP = PA_12,
 #endif
 

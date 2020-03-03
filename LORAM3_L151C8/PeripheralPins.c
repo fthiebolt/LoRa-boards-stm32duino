@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (c) 2018, STMicroelectronics
+ * Copyright (c) 2019, STMicroelectronics
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -209,15 +209,20 @@ WEAK const PinMap PinMap_SPI_SSEL[] = {
 
 //*** CAN ***
 
-//*** No CAN_RD ***
-
-//*** No CAN_TD ***
-
 //*** ETHERNET ***
-
-//*** No Ethernet ***
 
 //*** QUADSPI ***
 
-//*** No QUADSPI ***
+//*** USB ***
+#ifdef HAL_PCD_MODULE_ENABLED
+WEAK const PinMap PinMap_USB[] = {
+  {PA_11, USB, STM_PIN_DATA(STM_MODE_INPUT, GPIO_NOPULL, GPIO_AF10_USB)}, // USB_DM
+  {PA_12, USB, STM_PIN_DATA(STM_MODE_INPUT, GPIO_NOPULL, GPIO_AF10_USB)}, // USB_DP
+  {NC,    NP,    0}
+};
+#endif
+
+//*** No USB_OTG_FS ***
+
+//*** No USB_OTG_HS ***
 
