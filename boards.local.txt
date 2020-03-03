@@ -1,68 +1,17 @@
-#<stm32duino_addon>
-# neOCampus / stm32 addon for BSFrance boards
+# neOCampus / stm32 addon for LoRa boards
 
 ################################################################################
-# BSFRANCE stm32 LoRa boards
-
-BSFRANCE.name=BSFrance stm32 LoRa series
-
-BSFRANCE.build.vid=0xDEAD
-BSFRANCE.pid=0x4242
-BSFRANCE.vid.0=0xDEAD
-BSFRANCE.pid.0=0x4242
-
-BSFRANCE.build.core=arduino
-BSFRANCE.build.board=BSFRANCE
-BSFRANCE.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+# stm32 additional LoRa boards
 
 # LORAM3_L151C8 board
 # support for serial1 on PA9, PA10
-BSFRANCE.menu.pnum.LORAM3_L151C8=LoraM3 L151
-BSFRANCE.menu.pnum.LORAM3_L151C8.upload.maximum_size=65536
-BSFRANCE.menu.pnum.LORAM3_L151C8.upload.maximum_data_size=10240
-BSFRANCE.menu.pnum.LORAM3_L151C8.build.mcu=cortex-m3
-BSFRANCE.menu.pnum.LORAM3_L151C8.build.board=LORAM3_L151C8
-BSFRANCE.menu.pnum.LORAM3_L151C8.build.series=STM32L1xx
-BSFRANCE.menu.pnum.LORAM3_L151C8.build.product_line=STM32L151xB
-BSFRANCE.menu.pnum.LORAM3_L151C8.build.variant=LORAM3_L151C8
-BSFRANCE.menu.pnum.LORAM3_L151C8.build.cmsis_lib_gcc=arm_cortexM3l_math
-
-# Upload menu
-BSFRANCE.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
-BSFRANCE.menu.upload_method.serialMethod.upload.protocol=1
-BSFRANCE.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
-BSFRANCE.menu.upload_method.serialMethod.upload.tool=stm32CubeProg
-
-# USB connectivity
-
-# Optimisations
-BSFRANCE.menu.opt.osstd=Smallest (-Os default)
-BSFRANCE.menu.opt.oslto=Smallest (-Os) with LTO
-BSFRANCE.menu.opt.oslto.build.flags.optimize=-Os -flto
-BSFRANCE.menu.opt.o1std=Fast (-O1)
-BSFRANCE.menu.opt.o1std.build.flags.optimize=-O1
-BSFRANCE.menu.opt.o1lto=Fast (-O1) with LTO
-BSFRANCE.menu.opt.o1lto.build.flags.optimize=-O1 -flto
-BSFRANCE.menu.opt.o2std=Faster (-O2)
-BSFRANCE.menu.opt.o2std.build.flags.optimize=-O2
-BSFRANCE.menu.opt.o2lto=Faster (-O2) with LTO
-BSFRANCE.menu.opt.o2lto.build.flags.optimize=-O2 -flto
-BSFRANCE.menu.opt.o3std=Fastest (-O3)
-BSFRANCE.menu.opt.o3std.build.flags.optimize=-O3
-BSFRANCE.menu.opt.o3lto=Fastest (-O3) with LTO
-BSFRANCE.menu.opt.o3lto.build.flags.optimize=-O3 -flto
-BSFRANCE.menu.opt.ogstd=Debug (-g)
-BSFRANCE.menu.opt.ogstd.build.flags.optimize=-g -Og
-
-# C runtime library
-BSFRANCE.menu.rtlib.nano=Newlib Nano (default)
-BSFRANCE.menu.rtlib.nanofp=Newlib Nano + Float Printf
-BSFRANCE.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
-BSFRANCE.menu.rtlib.nanofs=Newlib Nano + Float Scanf
-BSFRANCE.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
-BSFRANCE.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
-BSFRANCE.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
-BSFRANCE.menu.rtlib.full=Newlib Standard
-BSFRANCE.menu.rtlib.full.build.flags.ldspecs=
-#</stm32duino_addon>
+LoRa.menu.pnum.LORAM3_L151C8=LoraM3 L151
+LoRa.menu.pnum.LORAM3_L151C8.upload.maximum_size=65536
+LoRa.menu.pnum.LORAM3_L151C8.upload.maximum_data_size=10240
+LoRa.menu.pnum.LORAM3_L151C8.build.mcu=cortex-m3
+LoRa.menu.pnum.LORAM3_L151C8.build.board=LORAM3_L151C8
+LoRa.menu.pnum.LORAM3_L151C8.build.series=STM32L1xx
+LoRa.menu.pnum.LORAM3_L151C8.build.product_line=STM32L151xB
+LoRa.menu.pnum.LORAM3_L151C8.build.variant=LORAM3_L151C8
+LoRa.menu.pnum.LORAM3_L151C8.build.cmsis_lib_gcc=arm_cortexM3l_math
 
