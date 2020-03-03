@@ -1,10 +1,10 @@
-# bsfrance_stm32duino
-stm32duino support for BSFrance stm32l151c8t6 board featuring a sx1276 (LoRa) module
-
-https://bsfrance.fr/lora-long-range/1368-LoRaM3-D-L151-LoRa-STM32-OLED-LiPo-development-board-long-range-ARM-SX1276.html
+# LoRa boards stm32duino
+stm32duino support for some LoRa boards like
+  * BSFrance stm32l151c8t6 board featuring a sx1276 (LoRa) module
+  * Heltec LoRa Node L151 featuring a stm32l151ccu6 + sx1276
 
 ### Getting started
-First of all, you ought to install stm32duino in your Arduino IDE
+First of all, you ought to install stm32duino in your Arduino IDE along with STM32CubeProgrammer
 
 https://github.com/stm32duino/Arduino_Core_STM32
 
@@ -18,4 +18,3 @@ a lot ... for example nothing was done to provide USB support ...
 
 Ultimately, my goal is to get rid of this repository and to have thoses boards* supported within stm32duino toolchain :)
 
-* STM32L151C8T6, STM32F103 & STM32F303
