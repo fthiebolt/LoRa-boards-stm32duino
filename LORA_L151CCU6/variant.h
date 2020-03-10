@@ -40,36 +40,36 @@ extern "C"{
  *----------------------------------------------------------------------------*/
 /* SMA connector on the bottom as pinout diagram from Heltec, STM32L151 device display side */
 /* Left side, from bottom to top */
-#define PB1     0			// LoRa_DIO2
-#define PB0     1			// LoRa_DIO3
-#define PA4     2			// NSS (LoRa_NSS)
-#define PA7     3			// MOSI (LoRa_MOSI)
-#define PA6     4			// MISO (LoRa_MISO)
-#define PA5     5			// SCK (LoRa_SCK)
-#define PA2     6			// ADC_IN2 (Power detection)
-#define PA1     7			// ADC_IN1
-#define PA0     8			// ADC_IN0 / PAO-WKUP
-#define PB5     9			// 
-#define PB6     10		// I2C1_SCL
-#define PB7     11		// I2C1_SDA
-#define PB9     12		// 
-#define PB8     13		// LED
+#define PB1     0       // LoRa_DIO2
+#define PB0     1       // LoRa_DIO3
+#define PA4     2       // NSS (LoRa_NSS)
+#define PA7     3       // MOSI (LoRa_MOSI)
+#define PA6     4       // MISO (LoRa_MISO)
+#define PA5     5       // SCK (LoRa_SCK)
+#define PA2     6       // ADC_IN2 (Power detection)
+#define PA1     7       // ADC_IN1
+#define PA0     8       // ADC_IN0 / PAO-WKUP
+#define PB5     9       // 
+#define PB6     10      // I2C1_SCL
+#define PB7     11      // I2C1_SDA
+#define PB9     12      // 
+#define PB8     13      // LED
 /* Right side, from bottom to top */
-#define PB10    14		// LoRa_DIO1
-#define PB11    15		// LoRa_DIO0
-#define PA3     16		// LoRa_RST
-#define PB12    17		//
-#define PB4     18		//
-#define PB3     19		// Vext control
-#define PA15    20		//
-#define PB13    21		//
-#define PB14    22		//
-#define PB15    23		//
+#define PB10    14      // LoRa_DIO1
+#define PB11    15      // LoRa_DIO0
+#define PA3     16      // LoRa_RST
+#define PB12    17      //
+#define PB4     18      //
+#define PB3     19      // Vext control
+#define PA15    20      //
+#define PB13    21      //
+#define PB14    22      //
+#define PB15    23      //
 #define PA8     24      //
-#define PA9     25		// UART1_TX
-#define PA10    26		// UART1_RX
-#define PA13    27		// SWDIO -> Serial Wire Debug Port
-#define PA14    28		// SWCLK -> Serial Wire Debug Port
+#define PA9     25      // UART1_TX
+#define PA10    26      // UART1_RX
+#define PA13    27      // SWDIO -> Serial Wire Debug Port
+#define PA14    28      // SWCLK -> Serial Wire Debug Port
 
 // This must be a literal
 // It is used with preprocessor tests (e.g. #if NUM_DIGITAL_PINS > 3)
@@ -108,7 +108,7 @@ extern "C"{
 #define LED_GREEN               LED_BUILTIN
 
 // On-board user button
-// #define USER_BTN                [dec.18 no user btn on board
+// #define USER_BTN             [dec.18 no user btn on board
 
 // Below SPI and I2C definitions already done in the core
 // Could be redefined here if differs from the default one

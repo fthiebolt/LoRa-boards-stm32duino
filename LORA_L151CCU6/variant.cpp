@@ -36,38 +36,38 @@ extern "C" {
 
 // Pin number
 const PinName digitalPin[] = {
-	/* SMA connector on the bottom, STM32L151 device display side */
-	/* Left side, from bottom to top */
-	PB_1,		//D0	- LoRa_DIO2
-	PB_0,		//D1	- LoRa_DIO3
-	PA_4,		//D2	- LoRa_NSS
-	PA_7,		//D3	- LoRa_MOSI
-	PA_6,		//D4	- LoRa_MISO
-	PA_5,		//D5	- LoRa_SCK
-	PA_2,		//D6	- Power detection
-	PA_1,		//D7	- ADC_IN1
-	PA_0,		//D8	- ADC_IN0
-	PB_5,		//D9	- Alternate functions : SPI1_SPI3_MOSI
-	PB_6,		//D10	- I2C1_SCL 
-	PB_7,		//D11	- I2C1_SDA
-	PB_9,		//D12	- Alternate functions : I2C1_SDA
-	PB_8,		//D13	- Alternate functions : I2C1_SCL & LED
-	/* Right side, from bottom to top */
-	PB_10,	//D14	- LoRa_DIO1
-	PB_11,	//D15	- LoRa_DIO0
-	PA_3,		//D16	- LoRa_RST
-	PB_12,	//D17	- Alternate functions : SPI2_NSS
-	PB_4,		//D18	- Alternate functions : SPI1_SPI3_MISO
-	PB_3,		//D19 - Vext control
-	PA_15,	//D20 - Alternate functions : SPI1_SPI3_NSS
-	PB_13,	//D21 - Alternate functions : SPI2_SCK
-	PB_14,	//D22	- Alternate functions : SPI2_MISO
-	PB_15,	//D23	- Alternate functions : SPI2_MOSI
-	PA_8		//D24	- 
-	PA_9,		//D25	- UART1_TX
-	PA_10		//D26	- UART1_RX
-	PA_13,	//D27 - STlink SWDIO: Serial Wire Debug Port 
-	PA_14		//D28 - STlink SWCLK: Serial Wire Debug Port 
+    /* SMA connector on the bottom, STM32L151 device display side */
+    /* Left side, from bottom to top */
+    PB_1,       //D0    - LoRa_DIO2
+    PB_0,       //D1    - LoRa_DIO3
+    PA_4,       //D2    - LoRa_NSS
+    PA_7,       //D3    - LoRa_MOSI
+    PA_6,       //D4    - LoRa_MISO
+    PA_5,       //D5    - LoRa_SCK
+    PA_2,       //D6    - Power detection
+    PA_1,       //D7    - ADC_IN1
+    PA_0,       //D8    - ADC_IN0
+    PB_5,       //D9    - Alternate functions : SPI1_SPI3_MOSI
+    PB_6,       //D10   - I2C1_SCL 
+    PB_7,       //D11   - I2C1_SDA
+    PB_9,       //D12   - Alternate functions : I2C1_SDA
+    PB_8,       //D13   - Alternate functions : I2C1_SCL & LED
+    /* Right side, from bottom to top */
+    PB_10,      //D14   - LoRa_DIO1
+    PB_11,      //D15   - LoRa_DIO0
+    PA_3,       //D16   - LoRa_RST
+    PB_12,      //D17   - Alternate functions : SPI2_NSS
+    PB_4,       //D18   - Alternate functions : SPI1_SPI3_MISO
+    PB_3,       //D19   - Vext control
+    PA_15,      //D20   - Alternate functions : SPI1_SPI3_NSS
+    PB_13,      //D21   - Alternate functions : SPI2_SCK
+    PB_14,      //D22   - Alternate functions : SPI2_MISO
+    PB_15,      //D23   - Alternate functions : SPI2_MOSI
+    PA_8,       //D24   - 
+    PA_9,       //D25   - UART1_TX
+    PA_10       //D26   - UART1_RX
+    PA_13,      //D27   - STlink SWDIO: Serial Wire Debug Port 
+    PA_14       //D28   - STlink SWCLK: Serial Wire Debug Port 
 };
 
 #ifdef __cplusplus
@@ -97,9 +97,9 @@ extern "C" {
   */
 WEAK void SystemClock_Config(void)
 {
-  	RCC_OscInitTypeDef RCC_OscInitStruct;
-  	RCC_ClkInitTypeDef RCC_ClkInitStruct;
-	RCC_PeriphCLKInitTypeDef PeriphClkInit;
+    RCC_OscInitTypeDef RCC_OscInitStruct;
+    RCC_ClkInitTypeDef RCC_ClkInitStruct;
+    RCC_PeriphCLKInitTypeDef PeriphClkInit;
 
     /* WARNING: USB bootloader from BSFrance seems to disable CLK ...
      * ... means that you get bricked once you overwrite it through serial upload :(
@@ -107,12 +107,12 @@ WEAK void SystemClock_Config(void)
     __HAL_RCC_PWR_CLK_ENABLE();
 
     /* Configure the main internal regulator output voltage */
-	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
     /* Initializes the CPU, AHB and APB busses clocks */
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-	RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+    RCC_OscInitStruct.LSEState = RCC_LSE_ON;
     RCC_OscInitStruct.HSIState = RCC_HSI_ON;    // for ADC
     RCC_OscInitStruct.HSICalibrationValue = 16;
     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -122,8 +122,8 @@ WEAK void SystemClock_Config(void)
 
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {
-		// Initialization Error
-	    _Error_Handler(__FILE__, __LINE__);
+        // Initialization Error
+        _Error_Handler(__FILE__, __LINE__);
     }
 
     /* Initializes the CPU, AHB and APB busses clocks */
@@ -136,19 +136,19 @@ WEAK void SystemClock_Config(void)
 
     if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
     {
-    	// Initialization Error
-		_Error_Handler(__FILE__, __LINE__);
+        // Initialization Error
+        _Error_Handler(__FILE__, __LINE__);
     }
 
     /* Initialise peripherals clocks */
-	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
-	PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+    PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
     
-	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
     {
-    	// Initialization Error
-		_Error_Handler(__FILE__, __LINE__);
-	}
+        // Initialization Error
+        _Error_Handler(__FILE__, __LINE__);
+    }
 }
 
 #ifdef __cplusplus
