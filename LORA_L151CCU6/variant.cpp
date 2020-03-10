@@ -65,7 +65,7 @@ const PinName digitalPin[] = {
     PB_15,      //D23   - Alternate functions : SPI2_MOSI
     PA_8,       //D24   - 
     PA_9,       //D25   - UART1_TX
-    PA_10       //D26   - UART1_RX
+    PA_10,      //D26   - UART1_RX
     PA_13,      //D27   - STlink SWDIO: Serial Wire Debug Port 
     PA_14       //D28   - STlink SWCLK: Serial Wire Debug Port 
 };
