@@ -30,51 +30,44 @@
 
 #include "pins_arduino.h"
 
-/* 
- *  * [jan.19] addon for selecting clock source
- *   * select HSE (external clock) or HSI (internal)
- *    */
-//#define _INTERNAL_CLOCK     // select HSI (HSE otherwise)
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 // Pin number
 const PinName digitalPin[] = {
-/* USB connector on the top, OLED display side */
-/* Left side, from bottom to top */
-  PA_2,     //D0 - Radio RST
-  PA_3,     //D1 - Radio DIO0
-  PA_4,     //D2 - Radio NSS
-  PA_5,     //D3 - RADIO SCK
-  PA_6,     //D4 - Radio MISO
-  PA_7,     //D5 - Radio MOSI
-  PB_0,     //D6
-  PB_1,     //D7
-  PB_10,    //D8
-  PB_11,    //D9
-  PB_12,    //D10
-  PB_13,    //D11
-  PB_14,    //D12
-  PB_15,    //D13
-  PA_8,     //D14
-  PA_9,     //D15 - Usart1 RX
-  PA_10,    //D16 - Usart1 TX
-/* Right side, from bottom to top */
-  PA_1,     //D17/ADC1 - Bat mon
-  PA_0,     //D18/ADC0
-  PC_13,    //D19 - LED
-  PB_9,     //D20
-  PB_8,     //D21
-  PB_7,     //D22 - OLED I2C1 SDA
-  PB_6,     //D23 - OLED I2C1 SCL
-  PB_5,     //D24 - OLED RST
-  PB_4,     //D25
-  PB_3,     //D26
-  PA_15,    //D27
-  PA_14,    //D28 - STlink SWCLK
-  PA_13     //D29 - STlink SWDIO
+	/* SMA connector on the bottom, STM32L151 device display side */
+	/* Left side, from bottom to top */
+	PB_1,		//D0	- LoRa_DIO2
+	PB_0,		//D1	- LoRa_DIO3
+	PA_4,		//D2	- LoRa_NSS
+	PA_7,		//D3	- LoRa_MOSI
+	PA_6,		//D4	- LoRa_MISO
+	PA_5,		//D5	- LoRa_SCK
+	PA_2,		//D6	- Power detection
+	PA_1,		//D7	- ADC_IN1
+	PA_0,		//D8	- ADC_IN0
+	PB_5,		//D9	- Alternate functions : SPI1_SPI3_MOSI
+	PB_6,		//D10	- I2C1_SCL 
+	PB_7,		//D11	- I2C1_SDA
+	PB_9,		//D12	- Alternate functions : I2C1_SDA
+	PB_8,		//D13	- Alternate functions : I2C1_SCL & LED
+	/* Right side, from bottom to top */
+	PB_10,	//D14	- LoRa_DIO1
+	PB_11,	//D15	- LoRa_DIO0
+	PA_3,		//D16	- LoRa_RST
+	PB_12,	//D17	- Alternate functions : SPI2_NSS
+	PB_4,		//D18	- Alternate functions : SPI1_SPI3_MISO
+	PB_3,		//D19 - Vext control
+	PA_15,	//D20 - Alternate functions : SPI1_SPI3_NSS
+	PB_13,	//D21 - Alternate functions : SPI2_SCK
+	PB_14,	//D22	- Alternate functions : SPI2_MISO
+	PB_15,	//D23	- Alternate functions : SPI2_MOSI
+	PA_8		//D24	- 
+	PA_9,		//D25	- UART1_TX
+	PA_10		//D26	- UART1_RX
+	PA_13,	//D27 - STlink SWDIO: Serial Wire Debug Port 
+	PA_14		//D28 - STlink SWCLK: Serial Wire Debug Port 
 };
 
 #ifdef __cplusplus
@@ -117,18 +110,6 @@ WEAK void SystemClock_Config(void)
 	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
     /* Initializes the CPU, AHB and APB busses clocks */
-#ifdef _INTERNAL_CLOCK
-    #warning "STM32L151 HSI INTERNAL CLOCK SELECTED !!"
-    // HSI only internal clock
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-    RCC_OscInitStruct.HSIState = RCC_HSI_ON;    // for ADC
-    RCC_OscInitStruct.HSICalibrationValue = 16;
-    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-    RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL4;
-    RCC_OscInitStruct.PLL.PLLDIV = RCC_PLL_DIV2;
-#else
-    // external clock
 	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
 	RCC_OscInitStruct.LSEState = RCC_LSE_ON;
@@ -138,7 +119,6 @@ WEAK void SystemClock_Config(void)
     RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
     RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL12;   // MUL12 --> VCO/2 ==> 48MHz USB with 8MHz HSE
     RCC_OscInitStruct.PLL.PLLDIV = RCC_PLL_DIV3;
-#endif
 
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {

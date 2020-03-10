@@ -38,45 +38,43 @@ extern "C"{
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
-/* USB connector on the top, OLED display side */
+/* SMA connector on the bottom as pinout diagram from Heltec, STM32L151 device display side */
 /* Left side, from bottom to top */
-#define PA2     0   // Radio RST
-#define PA3     1   // Radio DIO0
-#define PA4     2   // Radio NSS
-#define PA5     3   // Radio SPI CLK
-#define PA6     4   // Radio SPI MISO
-#define PA7     5   // Radio SPI MOSI
-#define PB0     6
-#define PB1     7
-#define PB10    8
-#define PB11    9
-#define PB12    10
-#define PB13    11
-#define PB14    12
-#define PB15    13
-#define PA8     14
-#define PA9     15  // Usart1 RX
-#define PA10    16  // Usart1 TX
+#define PB1     0			// DIO2
+#define PB0     1			// DIO3
+#define PA4     2			// NSS (BSFrance definition : Radio NSS)
+#define PA7     3			// MOSI (BSFrance definition : Radio SPI MOSI)
+#define PA6     4			// MISO (BSFrance definition : Radio SPI MISO)
+#define PA5     5			// SCK (BSFrance definition : Radio SPI CLK)
+#define PA2     6			// Power detection ADC_IN2 (BSFrance definition : Radio RST)
+#define PA1     7			// ADC_IN1 (BSFrance definition : ADC1 - Bat mon)
+#define PA0     8			// ADC_IN0 PAO-WKUP (BSFrance definition : ADC0)
+#define PB5     9			// Alternate functions : SPI1_SPI3_MOSI (BSFrance definition : OLED RST)
+#define PB6     10		// I2C1_SCL (BSFrance definition : OLED I2C1 SCL)
+#define PB7     11		// I2C1_SDA (BSFrance definition : OLED I2C1 SDA)
+#define PB9     12		// Alternate functions : I2C1_SDA
+#define PB8     13		// Alternate functions : I2C1_SCL & LED
 /* Right side, from bottom to top */
-#define PA1     17  // ADC1 - Bat mon
-#define PA0     18  // ADC0
-#define PC13    19  // LED
-#define PB9     20
-#define PB8     21
-#define PB7     22  // OLED I2C1 SDA
-#define PB6     23  // OLED I2C1 SCL
-#define PB5     24  // OLED RST
-#define PB4     25
-#define PB3     26
-#define PA15    27
-#define PA14    28  // STlink SWCLK
-#define PA13    29  // STlink SWDIO
-
+#define PB10    14		// DIO1
+#define PB11    15		// DIO0
+#define PA3     16		// RST_LoRa (BSFrance definition : Radio DIO0)
+#define PB12    17		// Alternate functions : SPI2_NSS
+#define PB4     18		// Alternate functions : SPI1_SPI3_MISO
+#define PB3     19		// Vext control
+#define PA15    20		// Alternate functions : SPI1_SPI3_NSS
+#define PB13    21		// Alternate functions : SPI2_SCK or USART3_CTS
+#define PB14    22		// Alternate functions : SPI2_MISO or USART3_RTS
+#define PB15    23		// Alternate functions : SPI2_MOSI
+#define PA8     24
+#define PA9     25		// UART1_TX
+#define PA10    26		// UART1_RX
+#define PA13    27		// SWDIO -> Serial Wire Debug Port (BSFrance definition : STlink SWDIO)
+#define PA14    28		// SWCLK -> Serial Wire Debug Port (BSFrance definition : STlink SWCLK)
 
 // This must be a literal
 // It is used with preprocessor tests (e.g. #if NUM_DIGITAL_PINS > 3)
 // so an enum will not work.
-#define NUM_DIGITAL_PINS        30
+#define NUM_DIGITAL_PINS        29
 
 // Allow to define Arduino style alias for analog input pin number --> Ax
 // All pins are digital, analog inputs are a subset of digital pins
@@ -106,7 +104,7 @@ extern "C"{
 //#define PWM_MAX_DUTY_CYCLE      255
 
 // On-board LED pin number
-#define LED_BUILTIN             PC13
+#define LED_BUILTIN             PB8
 #define LED_GREEN               LED_BUILTIN
 
 // On-board user button
