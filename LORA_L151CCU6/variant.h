@@ -40,36 +40,36 @@ extern "C"{
  *----------------------------------------------------------------------------*/
 /* SMA connector on the bottom as pinout diagram from Heltec, STM32L151 device display side */
 /* Left side, from bottom to top */
-#define PB1     0			// DIO2
-#define PB0     1			// DIO3
-#define PA4     2			// NSS (BSFrance definition : Radio NSS)
-#define PA7     3			// MOSI (BSFrance definition : Radio SPI MOSI)
-#define PA6     4			// MISO (BSFrance definition : Radio SPI MISO)
-#define PA5     5			// SCK (BSFrance definition : Radio SPI CLK)
-#define PA2     6			// Power detection ADC_IN2 (BSFrance definition : Radio RST)
-#define PA1     7			// ADC_IN1 (BSFrance definition : ADC1 - Bat mon)
-#define PA0     8			// ADC_IN0 PAO-WKUP (BSFrance definition : ADC0)
-#define PB5     9			// Alternate functions : SPI1_SPI3_MOSI (BSFrance definition : OLED RST)
-#define PB6     10		// I2C1_SCL (BSFrance definition : OLED I2C1 SCL)
-#define PB7     11		// I2C1_SDA (BSFrance definition : OLED I2C1 SDA)
-#define PB9     12		// Alternate functions : I2C1_SDA
-#define PB8     13		// Alternate functions : I2C1_SCL & LED
+#define PB1     0			// LoRa_DIO2
+#define PB0     1			// LoRa_DIO3
+#define PA4     2			// NSS (LoRa_NSS)
+#define PA7     3			// MOSI (LoRa_MOSI)
+#define PA6     4			// MISO (LoRa_MISO)
+#define PA5     5			// SCK (LoRa_SCK)
+#define PA2     6			// ADC_IN2 (Power detection)
+#define PA1     7			// ADC_IN1
+#define PA0     8			// ADC_IN0 / PAO-WKUP
+#define PB5     9			// 
+#define PB6     10		// I2C1_SCL
+#define PB7     11		// I2C1_SDA
+#define PB9     12		// 
+#define PB8     13		// LED
 /* Right side, from bottom to top */
-#define PB10    14		// DIO1
-#define PB11    15		// DIO0
-#define PA3     16		// RST_LoRa (BSFrance definition : Radio DIO0)
-#define PB12    17		// Alternate functions : SPI2_NSS
-#define PB4     18		// Alternate functions : SPI1_SPI3_MISO
+#define PB10    14		// LoRa_DIO1
+#define PB11    15		// LoRa_DIO0
+#define PA3     16		// LoRa_RST
+#define PB12    17		//
+#define PB4     18		//
 #define PB3     19		// Vext control
-#define PA15    20		// Alternate functions : SPI1_SPI3_NSS
-#define PB13    21		// Alternate functions : SPI2_SCK or USART3_CTS
-#define PB14    22		// Alternate functions : SPI2_MISO or USART3_RTS
-#define PB15    23		// Alternate functions : SPI2_MOSI
-#define PA8     24
+#define PA15    20		//
+#define PB13    21		//
+#define PB14    22		//
+#define PB15    23		//
+#define PA8     24      //
 #define PA9     25		// UART1_TX
 #define PA10    26		// UART1_RX
-#define PA13    27		// SWDIO -> Serial Wire Debug Port (BSFrance definition : STlink SWDIO)
-#define PA14    28		// SWCLK -> Serial Wire Debug Port (BSFrance definition : STlink SWCLK)
+#define PA13    27		// SWDIO -> Serial Wire Debug Port
+#define PA14    28		// SWCLK -> Serial Wire Debug Port
 
 // This must be a literal
 // It is used with preprocessor tests (e.g. #if NUM_DIGITAL_PINS > 3)
@@ -87,7 +87,7 @@ extern "C"{
 // !!! It must be aligned with the number of analog PinName
 // !!! defined in digitalPin[] array in variant.cpp
 // !!!
-#define NUM_ANALOG_INPUTS       2
+#define NUM_ANALOG_INPUTS       3
 // Define digital pin number of the first analog input  (i.e. which digital pin is A0)
 // First analog pin value (A0) must be greater than or equal to NUM_ANALOG_INPUTS
 #define NUM_ANALOG_FIRST        18
