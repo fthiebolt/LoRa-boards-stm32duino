@@ -5,7 +5,7 @@
 
 # LORAM3_L151C8 board
 # support for serial1 on PA9, PA10
-LoRa.menu.pnum.LORAM3_L151C8=LoraM3 L151
+LoRa.menu.pnum.LORAM3_L151C8=BSFrance LoraM3 L151
 LoRa.menu.pnum.LORAM3_L151C8.upload.maximum_size=65536
 LoRa.menu.pnum.LORAM3_L151C8.upload.maximum_data_size=10240
 LoRa.menu.pnum.LORAM3_L151C8.build.mcu=cortex-m3
