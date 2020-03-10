@@ -3,6 +3,9 @@ stm32duino support for some LoRa boards like
   * BSFrance stm32l151c8t6 board featuring a sx1276 (LoRa) module
   * Heltec LoRa Node L151 featuring a stm32l151ccu6 + sx1276
 
+## NEWS ##
+ * [Mar.20] preliminary Heltec board support: it works with stm32duino 1.8 :)
+
 ### Getting started
 First of all, you ought to install stm32duino in your Arduino IDE along with STM32CubeProgrammer
 
