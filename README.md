@@ -6,7 +6,7 @@ stm32duino support for some LoRa boards like
 ## NEWS ##
  * **[Mar.20]** preliminary Heltec board support: it works with stm32duino 1.8 :)
 
- *Note: stm32l151cc belong to product_line:STM32L151xC ... that doesn't work ... weird GPIO behaviour ... but it's ok when applying STM32L151xB product_line :)*
+ *Note: stm32l151cc belongs to product_line:STM32L151xC ... that doesn't work ... weird GPIO behaviour ... but it's ok when applying STM32L151xB product_line :)*
 
  * **[apr.19]** BSFrance L151 nodes are working :)
 
@@ -23,5 +23,5 @@ For such behaviour, you just need to switch a selector.
 ### TODO
 a lot ... for example nothing was done to provide USB support ...
 
-Ultimately, my goal is to get rid of this repository and to have thoses boards* supported within stm32duino toolchain :)
+Ultimately, my goal is to get rid of this repository and to have thoses boards supported within stm32duino toolchain :)
 
