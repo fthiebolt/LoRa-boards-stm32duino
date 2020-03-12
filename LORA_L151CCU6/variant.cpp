@@ -70,6 +70,13 @@ const PinName digitalPin[] = {
     PA_14       //D28   - STlink SWCLK: Serial Wire Debug Port 
 };
 
+// Analog (Ax) pin number array
+const uint32_t analogInputPin[] = {
+  8,    //A0
+  7,    //A1
+  6     //A2
+};
+
 #ifdef __cplusplus
 }
 #endif

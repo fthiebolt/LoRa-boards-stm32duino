@@ -4,13 +4,7 @@
 
 **  File        : LinkerScript.ld
 **
-**  Abstract    : Linker script for STM32L151C8Tx Device with
-**                64KByte FLASH, 10KByte RAM
-**
-**                Set heap size, stack size and stack location according
-**                to application requirements.
-**
-**                Set memory bank area and size if external memory is used.
+**  Abstract    : STM32 generic Linker script
 **
 **  Target      : STMicroelectronics STM32
 **

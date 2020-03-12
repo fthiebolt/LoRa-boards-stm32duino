@@ -46,9 +46,9 @@ extern "C"{
 #define PA7     3       // MOSI (LoRa_MOSI)
 #define PA6     4       // MISO (LoRa_MISO)
 #define PA5     5       // SCK (LoRa_SCK)
-#define PA2     6       // ADC_IN2 (Power detection)
-#define PA1     7       // ADC_IN1
-#define PA0     8       // ADC_IN0 / PAO-WKUP
+#define PA2     A2      // ADC_IN2 (Power detection)
+#define PA1     A1      // ADC_IN1
+#define PA0     A0      // ADC_IN0 / PAO-WKUP
 #define PB5     9       // 
 #define PB6     10      // I2C1_SCL
 #define PB7     11      // I2C1_SDA
@@ -90,7 +90,9 @@ extern "C"{
 #define NUM_ANALOG_INPUTS       3
 // Define digital pin number of the first analog input  (i.e. which digital pin is A0)
 // First analog pin value (A0) must be greater than or equal to NUM_ANALOG_INPUTS
-#define NUM_ANALOG_FIRST        18
+// #define NUM_ANALOG_FIRST        18
+// or define analogInputPins in variant.cpp
+
 
 // Below ADC, DAC and PWM definitions already done in the core
 // Could be redefined here if needed

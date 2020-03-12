@@ -22,9 +22,7 @@ LoRa.menu.pnum.LORA_L151CCU6.upload.maximum_data_size=32768
 LoRa.menu.pnum.LORA_L151CCU6.build.mcu=cortex-m3
 LoRa.menu.pnum.LORA_L151CCU6.build.board=LORA_L151CCU6
 LoRa.menu.pnum.LORA_L151CCU6.build.series=STM32L1xx
-# [mar.20] does not work if you set proper product_line (i.e STM32L1R1xC) ... maybe one day ??
-LoRa.menu.pnum.LORA_L151CCU6.build.product_line=STM32L151xB
-#LoRa.menu.pnum.LORA_L151CCU6.build.product_line=STM32L151xC
+LoRa.menu.pnum.LORA_L151CCU6.build.product_line=STM32L151xC
 LoRa.menu.pnum.LORA_L151CCU6.build.variant=LORA_L151CCU6
 LoRa.menu.pnum.LORA_L151CCU6.build.cmsis_lib_gcc=arm_cortexM3l_math
 #LoRa.menu.pnum.LORA_L151CCU6.build.f_cpu=32000000L
